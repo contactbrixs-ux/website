@@ -36,17 +36,17 @@ const menus: Record<string, MenuItem[]> = {
   Resources: [ 
     { title: "Roadmap", subtitle: "Future milestones and phases.", icon: <Map size={20} strokeWidth={1.5} />, href: "/resources/roadmap" }, 
     { title: "Executive Summary", subtitle: "The Brixs vision and mission.", icon: <FileText size={20} strokeWidth={1.5} />, href: "/resources/vision" }, 
-    { title: "Documentation", subtitle: "Read the full technical docs.", icon: <BookOpen size={20} strokeWidth={1.5} />, href: "/docs" }, 
+    { title: "Documentation", subtitle: "Read the full technical docs.", icon: <BookOpen size={20} strokeWidth={1.5} />, href: "https://docs.brixs.space/", external: true }, 
   ] 
 }; 
 
 export default function Header() { 
   const [activeMenu, setActiveMenu] = useState<string | null>(null); 
   return ( 
-    <header className="sticky top-0 z-50 flex items-center justify-between border-b border-gray-200 bg-white px-6 py-0 h-[72px]" onMouseLeave={() => setActiveMenu(null)}> 
+    <header className="sticky top-0 z-50 flex items-center justify-between border-b border-gray-200 bg-white px-6 py-0 h-[72px] text-[#0F1115]" onMouseLeave={() => setActiveMenu(null)}> 
       <div className="flex items-center gap-8"> 
         <Link href="/" className="flex items-center gap-3 text-[22px] font-bold tracking-tight text-black"> 
-          <Image src="/brixs_logo_black.svg" alt="BRIXS Logo" width={140} height={40} className="h-7 w-auto" /> 
+          <Image src="/full_logo_black_on_white.png" alt="BRIXS Logo" width={200} height={57} className="h-10 w-auto" /> 
         </Link> 
         <nav className="hidden lg:flex items-center gap-1"> 
           {Object.entries(menus).map(([name, items]) => ( 
@@ -56,9 +56,9 @@ export default function Header() {
                 <svg width="10" height="6" viewBox="0 0 10 6" fill="none" className={`transition-transform text-gray-400 ${activeMenu === name ? 'rotate-180' : ''}`}><path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg> 
               </button> 
               {activeMenu === name && ( 
-                <div className="absolute top-[calc(100%+4px)] left-0 min-w-[360px] bg-white border border-gray-100 rounded-none shadow-[0_8px_30px_rgb(0,0,0,0.08)] p-3 animate-in fade-in slide-in-from-top-2"> 
+                <div className="absolute top-[calc(100%+4px)] left-0 min-w-[360px] bg-white border border-gray-100 rounded-none shadow-[0_8px_30px_rgb(0,0,0,0.08)] p-3 animate-in fade-in slide-in-from-top-2 text-[#0F1115]"> 
                   {items.map((item, idx) => ( 
-                    <Link key={idx} href={item.href} className="flex items-start gap-4 p-3 rounded-none hover:bg-gray-50 transition-colors group"> 
+                    <Link key={idx} href={item.href} className="flex items-start gap-4 p-3 rounded-none hover:bg-gray-50 transition-colors group text-[#0F1115]"> 
                       <div className="flex-shrink-0 mt-0.5 w-11 h-11 rounded-none border border-gray-200 bg-white flex items-center justify-center text-gray-500 group-hover:text-black transition-colors shadow-sm"> 
                         {item.icon} 
                       </div> 
