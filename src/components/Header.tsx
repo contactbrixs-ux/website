@@ -140,7 +140,7 @@ export default function Header() {
                         }}
                       >
                         <div className="text-gray-500 bg-white border border-gray-200 p-2 w-fit">
-                          {cloneElement(item.icon as React.ReactElement, { size: 18 })}
+                          {cloneElement(item.icon as React.ReactElement<any>, { size: 18 })}
                         </div>
                         <div className="text-[13px] font-semibold leading-tight flex items-center gap-1">
                           {item.title}
