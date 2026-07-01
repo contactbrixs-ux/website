@@ -4,9 +4,9 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Brixs Chain | Premium Blockchain Platform",
+  title: "Brixs Chain | Look Forward",
   description:
-    "Brixs Chain is a premium blockchain platform with a single flagship landing page, strong color grading, and high-end motion.",
+    "Brixs Chain is a next-generation infrastructure built for what comes next. Look Forward.",
 };
 
 export default function RootLayout({
