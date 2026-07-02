@@ -65,7 +65,7 @@ export default function ContactPage() {
       
       <div className="relative overflow-hidden pt-32 pb-24">
         {/* Background Gradients */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,.03),transparent_40%),linear-gradient(180deg,rgba(255,255,255,.01),transparent_30%)]" pointerEvents="none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,.03),transparent_40%),linear-gradient(180deg,rgba(255,255,255,.01),transparent_30%)] pointer-events-none" />
         
         <div className="mx-auto max-w-7xl px-5 sm:px-8 relative">
           <div className="grid gap-12 lg:grid-cols-[.9fr_1.1fr] lg:gap-20 items-start">
@@ -98,7 +98,7 @@ export default function ContactPage() {
 
             {/* Right Column - Form */}
             <div className="rounded-[2rem] border border-white/10 bg-[rgba(255,255,255,.02)] p-6 sm:p-10 shadow-[0_40px_120px_rgba(0,0,0,.5)] backdrop-blur-xl relative overflow-hidden">
-              <div className="absolute -left-12 -top-12 h-40 w-40 rounded-full bg-[#005BFF]/20 blur-3xl" pointerEvents="none" />
+              <div className="absolute -left-12 -top-12 h-40 w-40 rounded-full bg-[#005BFF]/20 blur-3xl pointer-events-none" />
               
               {isSuccess ? (
                 <div className="flex flex-col items-center justify-center text-center py-20">
