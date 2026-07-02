@@ -145,7 +145,7 @@ export default function BrxFooter() {
                 <li><a href="https://docs.brixs.space/smart-contracts/overview" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Smart Contracts</a></li>
                 <li><a href="https://docs.brixs.space/wallets/overview" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Wallets</a></li>
                 <li><a href="https://docs.brixs.space/api/overview" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">API Reference</a></li>
-              <li><a href="https://wallet.brixs.network" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Testnet Faucet</a></li>
+              <li><a href="https://faucet.brixs.space/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Testnet Faucet</a></li>
               <li><a href="https://github.com/Brixs-Chain" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a></li>
               <li><Link href="/resources/roadmap" className="hover:text-white transition-colors">Development Updates</Link></li>
               <li><a href="#" className="hover:text-white transition-colors">Support Forum</a></li>
