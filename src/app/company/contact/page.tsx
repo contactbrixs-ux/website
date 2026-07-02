@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Loader2, Mail, MapPin } from "lucide-react";
 import BrxFooter from "@/components/BrxFooter";
-import Header from "@/components/Header";
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -61,7 +60,6 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen text-white bg-[#05070A] selection:bg-white/20">
-      <Header />
       
       <div className="relative overflow-hidden pt-32 pb-24">
         {/* Background Gradients */}

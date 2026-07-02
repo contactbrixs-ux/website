@@ -148,7 +148,7 @@ export default function BrxFooter() {
               <li><a href="https://faucet.brixs.space/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Testnet Faucet</a></li>
               <li><a href="https://github.com/Brixs-Chain" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a></li>
               <li><Link href="/resources/roadmap" className="hover:text-white transition-colors">Development Updates</Link></li>
-              <li><a href="#" className="hover:text-white transition-colors">Support Forum</a></li>
+              <li><Link href="/company/contact" className="hover:text-white transition-colors">Support</Link></li>
             </ul>
           </div>
           <div className="mt-8 relative z-10">
