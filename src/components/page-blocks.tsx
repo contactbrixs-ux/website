@@ -43,7 +43,7 @@ export const groupMeta: Record<SitePage["group"], GroupMeta> = {
   "use-cases": { icon: Sparkles, label: "Use cases", lead: "Payments, RWAs, stablecoins, and agentic systems.", cta: "See live use cases", href: "/use-cases/payments" },
   docs: { icon: BookOpen, label: "Docs", lead: "Protocol pages for builders who want the architecture first.", cta: "Read the docs", href: "/docs/core-brixs-chain" },
   community: { icon: MessageSquareMore, label: "Community", lead: "Support, events, governance, and public discussion.", cta: "Join the community", href: "/community/support" },
-  "use-brixs": { icon: WalletCards, label: "Use Brixs", lead: "Wallet, portal, staking, airdrops, and scan.", cta: "Open Brixs products", href: "/use-brixs/wallet" },
+  "use-brixs": { icon: WalletCards, label: "Use Brixs", lead: "Wallet, portal, staking, airdrops, and scan.", cta: "Open Brixs products", href: "https://wallet.brixs.network" },
   company: { icon: BadgeInfo, label: "Company", lead: "About, vision, whitepaper, contact, and brand story.", cta: "View company pages", href: "/company/about" },
   legal: { icon: ShieldCheck, label: "Legal", lead: "Terms and privacy, kept simple and centralized.", cta: "Read legal", href: "/legal" },
 };

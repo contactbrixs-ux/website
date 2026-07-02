@@ -17,8 +17,8 @@ const menus: Record<string, MenuItem[]> = {
   Products: [
     { title: "Native EVM", subtitle: "High-performance smart contract engine.", icon: <Cpu size={20} strokeWidth={1.5} />, href: "/products/native-evm", badge: "Core" },
     { title: "Brixs CLI & SDKs", subtitle: "Tools for the developer ecosystem.", icon: <SquareSquare size={20} strokeWidth={1.5} />, href: "/products/developer-ecosystem" },
-    { title: "Brixs Wallet", subtitle: "Send, receive, and hold assets.", icon: <Wallet size={20} strokeWidth={1.5} />, href: "/use-brixs/wallet" },
-    { title: "Portal", subtitle: "Bridge, swap, and manage assets.", icon: <Layers size={20} strokeWidth={1.5} />, href: "/use-brixs/portal" },
+    { title: "Brixs Wallet", subtitle: "Send, receive, and hold assets.", icon: <Wallet size={20} strokeWidth={1.5} />, href: "https://wallet.brixs.network", external: true },
+    { title: "Portal", subtitle: "Bridge, swap, and manage assets.", icon: <Layers size={20} strokeWidth={1.5} />, href: "https://wallet.brixs.network", external: true },
   ],
   Solutions: [
     { title: "Core Architecture", subtitle: "Modular and parallel execution.", icon: <Network size={20} strokeWidth={1.5} />, href: "/solutions/architecture" },
@@ -107,7 +107,7 @@ export default function Header() {
       </div> 
       <div className="flex items-center gap-4"> 
         <Link className="hidden md:flex text-[15px] font-medium text-gray-700 hover:text-black transition-colors" href="/cli"> Start building </Link> 
-        <Link className="hidden md:flex bg-[#0052FF] text-white hover:bg-blue-700 px-5 py-2.5 rounded-none text-[15px] font-semibold items-center gap-2 transition-colors" href="/use-brixs/portal"> Enter Brixs </Link> 
+        <Link className="hidden md:flex bg-[#0052FF] text-white hover:bg-blue-700 px-5 py-2.5 rounded-none text-[15px] font-semibold items-center gap-2 transition-colors" href="https://wallet.brixs.network"> Launch App </Link> 
         <button aria-label="Open navigation" className="lg:hidden text-black" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
           {mobileMenuOpen ? <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg> : <Menu size={24} />}
         </button> 
@@ -155,7 +155,7 @@ export default function Header() {
           </div>
           <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 p-4 flex gap-3 z-50">
             <Link className="flex-1 text-[15px] font-bold text-center py-3 border border-gray-200 rounded-none text-black bg-gray-50" href="/cli" onClick={() => setMobileMenuOpen(false)}>Start building</Link>
-            <Link className="flex-1 bg-[#0052FF] text-white text-[15px] font-bold text-center py-3 rounded-none" href="/use-brixs/portal" onClick={() => setMobileMenuOpen(false)}>Enter Brixs</Link>
+            <Link className="flex-1 bg-[#0052FF] text-white text-[15px] font-bold text-center py-3 rounded-none" href="https://wallet.brixs.network" onClick={() => setMobileMenuOpen(false)}>Launch App</Link>
           </div>
         </div>
       )}

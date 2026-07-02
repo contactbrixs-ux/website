@@ -88,7 +88,7 @@ export default function Home() {
           </p>{" "}
           <div className="brx-buttons">
             {" "}
-            <Link className="brx-dark-btn" href="/use-brixs/portal">
+            <Link className="brx-dark-btn" href="https://wallet.brixs.network">
               Explore Brixs <ArrowDownRight size={17} />
             </Link>{" "}
             <Link className="brx-line-btn" href="/solutions/architecture">
