@@ -1,145 +1,243 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-// Initialize Resend with the API key from environment variables
 const resend = new Resend(process.env.RESEND_API_KEY);
-
-// Default sender email (Now verified)
 const SENDER_EMAIL = process.env.RESEND_FROM_EMAIL || 'hello@brixs.space';
+const LOGO_URL = 'https://www.brixs.space/branding-kit/full_logo_white_on_transparent.png';
+const ICON_URL = 'https://www.brixs.space/branding-kit/icon_white_on_transparent.png';
 
-// Map departments to internal Brixs email addresses
 const departmentEmails: Record<string, string> = {
   'General Inquiries': 'hello@brixs.space',
   'Support': 'support@brixs.space',
   'Partnerships': 'partnerships@brixs.space',
-  'Legal & Terms': 'legal@brixs.space'
+  'Legal & Terms': 'legal@brixs.space',
 };
+
+function internalTemplate(name: string, email: string, department: string, subject: string, message: string) {
+  return `
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"/></head>
+<body style="margin:0;padding:0;background:#f0f2f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f2f5;padding:40px 20px;">
+    <tr><td align="center">
+      <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 4px 32px rgba(0,0,0,0.08);">
+        
+        <!-- Header -->
+        <tr>
+          <td style="background:#05070A;padding:28px 36px;border-bottom:3px solid #005BFF;">
+            <table width="100%"><tr>
+              <td><img src="${LOGO_URL}" alt="BRIXS" height="32" style="display:block;"/></td>
+              <td align="right" style="color:rgba(255,255,255,0.4);font-size:11px;text-transform:uppercase;letter-spacing:2px;">Internal Inquiry</td>
+            </tr></table>
+          </td>
+        </tr>
+        
+        <!-- Title -->
+        <tr>
+          <td style="padding:32px 36px 0 36px;">
+            <p style="margin:0 0 4px 0;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:#9ca3af;font-weight:600;">New Inquiry Received</p>
+            <h1 style="margin:0;font-size:22px;font-weight:600;color:#111827;letter-spacing:-0.03em;line-height:1.3;">${subject}</h1>
+          </td>
+        </tr>
+
+        <!-- Info Cards -->
+        <tr>
+          <td style="padding:24px 36px;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;">
+              <tr>
+                <td width="50%" style="padding:16px 20px;border-right:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb;">
+                  <p style="margin:0 0 4px 0;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:#9ca3af;font-weight:600;">From</p>
+                  <p style="margin:0;font-size:15px;font-weight:500;color:#111827;">${name}</p>
+                </td>
+                <td width="50%" style="padding:16px 20px;border-bottom:1px solid #e5e7eb;">
+                  <p style="margin:0 0 4px 0;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:#9ca3af;font-weight:600;">Email</p>
+                  <p style="margin:0;font-size:15px;color:#005BFF;">${email}</p>
+                </td>
+              </tr>
+              <tr>
+                <td width="50%" style="padding:16px 20px;border-right:1px solid #e5e7eb;">
+                  <p style="margin:0 0 4px 0;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:#9ca3af;font-weight:600;">Department</p>
+                  <p style="margin:0;font-size:15px;font-weight:500;color:#111827;">${department}</p>
+                </td>
+                <td width="50%" style="padding:16px 20px;">
+                  <p style="margin:0 0 4px 0;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:#9ca3af;font-weight:600;">Priority</p>
+                  <p style="margin:0;font-size:15px;font-weight:500;color:#10b981;">● Normal</p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        
+        <!-- Message -->
+        <tr>
+          <td style="padding:0 36px 32px 36px;">
+            <p style="margin:0 0 12px 0;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:#9ca3af;font-weight:600;">Full Message</p>
+            <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;padding:24px;font-size:14px;line-height:1.7;color:#374151;white-space:pre-wrap;">${message}</div>
+          </td>
+        </tr>
+        
+        <!-- Footer -->
+        <tr>
+          <td style="background:#f9fafb;padding:20px 36px;border-top:1px solid #e5e7eb;">
+            <table width="100%"><tr>
+              <td style="font-size:12px;color:#9ca3af;">Brixs Contact Gateway &bull; Automated</td>
+              <td align="right" style="font-size:12px;color:#9ca3af;">${new Date().toISOString().split('T')[0]}</td>
+            </tr></table>
+          </td>
+        </tr>
+        
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>`;
+}
+
+function userTemplate(name: string, department: string, subject: string) {
+  return `
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"/></head>
+<body style="margin:0;padding:0;background:#05070A;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#05070A;padding:40px 20px;">
+    <tr><td align="center">
+      <table width="600" cellpadding="0" cellspacing="0" style="background:#0C0F14;border:1px solid rgba(255,255,255,0.08);border-radius:20px;overflow:hidden;">
+        
+        <!-- Header with Logo -->
+        <tr>
+          <td align="center" style="padding:40px 36px 24px 36px;border-bottom:1px solid rgba(255,255,255,0.06);">
+            <img src="${ICON_URL}" alt="BRIXS" height="48" style="display:block;margin-bottom:20px;"/>
+            <h1 style="margin:0;font-size:26px;font-weight:500;color:#ffffff;letter-spacing:-0.03em;">We've received your request</h1>
+            <p style="margin:8px 0 0 0;font-size:14px;color:rgba(255,255,255,0.45);">Our team is on it.</p>
+          </td>
+        </tr>
+        
+        <!-- Greeting -->
+        <tr>
+          <td style="padding:36px 36px 0 36px;">
+            <p style="margin:0 0 20px 0;font-size:16px;line-height:1.6;color:rgba(255,255,255,0.7);">
+              Hi <strong style="color:#ffffff;">${name}</strong>,
+            </p>
+            <p style="margin:0 0 24px 0;font-size:15px;line-height:1.7;color:rgba(255,255,255,0.55);">
+              Thank you for contacting Brixs. We have successfully received your inquiry and a dedicated member from our team will review and respond to you shortly.
+            </p>
+          </td>
+        </tr>
+
+        <!-- Inquiry Summary Card -->
+        <tr>
+          <td style="padding:0 36px 28px 36px;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;overflow:hidden;">
+              <tr>
+                <td style="padding:20px 24px;border-bottom:1px solid rgba(255,255,255,0.04);">
+                  <p style="margin:0 0 4px 0;font-size:10px;text-transform:uppercase;letter-spacing:1.8px;color:rgba(255,255,255,0.3);font-weight:600;">Subject</p>
+                  <p style="margin:0;font-size:16px;font-weight:500;color:#ffffff;">${subject}</p>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:16px 24px;">
+                  <table width="100%"><tr>
+                    <td width="50%">
+                      <p style="margin:0 0 4px 0;font-size:10px;text-transform:uppercase;letter-spacing:1.8px;color:rgba(255,255,255,0.3);font-weight:600;">Department</p>
+                      <p style="margin:0;font-size:14px;color:rgba(255,255,255,0.8);">${department}</p>
+                    </td>
+                    <td width="50%">
+                      <p style="margin:0 0 4px 0;font-size:10px;text-transform:uppercase;letter-spacing:1.8px;color:rgba(255,255,255,0.3);font-weight:600;">Response Time</p>
+                      <p style="margin:0;font-size:14px;color:rgba(255,255,255,0.8);">Within 24–48 hours</p>
+                    </td>
+                  </tr></table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        
+        <!-- CTA -->
+        <tr>
+          <td align="center" style="padding:0 36px 36px 36px;">
+            <table cellpadding="0" cellspacing="0">
+              <tr>
+                <td style="background:#ffffff;border-radius:6px;padding:14px 32px;">
+                  <a href="https://www.brixs.space" style="text-decoration:none;font-size:14px;font-weight:600;color:#000000;letter-spacing:-0.01em;">Visit Brixs Platform →</a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        
+        <!-- Divider -->
+        <tr>
+          <td style="padding:0 36px;">
+            <div style="height:1px;background:rgba(255,255,255,0.06);"></div>
+          </td>
+        </tr>
+        
+        <!-- Footer -->
+        <tr>
+          <td style="padding:32px 36px;">
+            <p style="margin:0 0 6px 0;font-size:14px;color:rgba(255,255,255,0.55);">Best regards,</p>
+            <p style="margin:0 0 20px 0;font-size:15px;font-weight:600;color:#ffffff;">The Brixs Team</p>
+            
+            <table width="100%"><tr>
+              <td>
+                <a href="https://www.brixs.space" style="font-size:12px;color:#005BFF;text-decoration:none;margin-right:16px;">Website</a>
+                <a href="https://docs.brixs.space" style="font-size:12px;color:#005BFF;text-decoration:none;margin-right:16px;">Documentation</a>
+                <a href="https://x.com/BrixsChain" style="font-size:12px;color:#005BFF;text-decoration:none;margin-right:16px;">X (Twitter)</a>
+                <a href="https://github.com/Brixs-Chain" style="font-size:12px;color:#005BFF;text-decoration:none;">GitHub</a>
+              </td>
+            </tr></table>
+          </td>
+        </tr>
+
+        <!-- Legal -->
+        <tr>
+          <td style="padding:20px 36px;background:rgba(0,0,0,0.3);border-top:1px solid rgba(255,255,255,0.04);">
+            <p style="margin:0;font-size:11px;line-height:1.6;color:rgba(255,255,255,0.25);text-align:center;">
+              © ${new Date().getFullYear()} Brixs Chain. All rights reserved.<br/>
+              This is an automated response. Please do not reply directly unless you need to add information to your existing inquiry.
+            </p>
+          </td>
+        </tr>
+        
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>`;
+}
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
     const { name, email, department, subject, message } = body;
 
-    // Validate inputs
     if (!name || !email || !department || !subject || !message) {
-      return NextResponse.json(
-        { error: 'All fields are required.' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'All fields are required.' }, { status: 400 });
     }
 
-    // Determine the internal routing address
     const internalToEmail = departmentEmails[department] || 'hello@brixs.space';
 
-    // 1. Send the internal notification email to the Brixs team
+    // 1. Internal notification to the Brixs team
     const internalEmailResponse = await resend.emails.send({
       from: `Brixs Platform <${SENDER_EMAIL}>`,
       to: [internalToEmail],
-      subject: `New Inquiry: [${department}] ${subject}`,
+      subject: `[${department}] ${subject} — from ${name}`,
       replyTo: email,
-      html: `
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <style>
-            body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f4f5f7; margin: 0; padding: 40px 20px; }
-            .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.05); }
-            .header { background-color: #05070a; padding: 24px 32px; color: #ffffff; border-bottom: 4px solid #005BFF; }
-            .header h1 { margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -0.02em; }
-            .content { padding: 32px; color: #1a1a1a; }
-            .field { margin-bottom: 24px; }
-            .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #6b7280; margin-bottom: 6px; font-weight: 600; }
-            .value { font-size: 15px; color: #111827; line-height: 1.5; }
-            .message-box { background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; font-size: 14px; line-height: 1.6; color: #374151; white-space: pre-wrap; margin-top: 8px; }
-            .footer { padding: 24px 32px; background-color: #f9fafb; border-top: 1px solid #f3f4f6; text-align: center; }
-            .footer p { margin: 0; font-size: 12px; color: #9ca3af; }
-          </style>
-        </head>
-        <body>
-          <div class="container">
-            <div class="header">
-              <h1>Incoming Inquiry — ${department}</h1>
-            </div>
-            <div class="content">
-              <div class="field">
-                <div class="label">Sender Details</div>
-                <div class="value"><strong>${name}</strong> (${email})</div>
-              </div>
-              <div class="field">
-                <div class="label">Subject</div>
-                <div class="value" style="font-weight: 500;">${subject}</div>
-              </div>
-              <div class="field">
-                <div class="label">Message</div>
-                <div class="message-box">${message}</div>
-              </div>
-            </div>
-            <div class="footer">
-              <p>Generated via Brixs Chain Contact Gateway</p>
-            </div>
-          </div>
-        </body>
-        </html>
-      `,
+      html: internalTemplate(name, email, department, subject, message),
     });
 
     if (internalEmailResponse.error) {
       console.error('Resend Internal Error:', internalEmailResponse.error);
-      return NextResponse.json({ error: 'Failed to send internal email' }, { status: 500 });
+      return NextResponse.json({ error: 'Failed to process your request. Please try again.' }, { status: 500 });
     }
 
-    // 2. Send the auto-responder email to the user
+    // 2. Auto-responder to the user
     const userEmailResponse = await resend.emails.send({
-      from: `Brixs Team <${SENDER_EMAIL}>`,
+      from: `Brixs <${SENDER_EMAIL}>`,
       to: [email],
-      subject: `We've received your request: ${subject}`,
-      html: `
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <style>
-            body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #05070a; margin: 0; padding: 40px 20px; }
-            .container { max-width: 600px; margin: 0 auto; background-color: #0f1115; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; overflow: hidden; }
-            .header { padding: 32px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
-            .header h1 { margin: 0; font-size: 24px; font-weight: 400; color: #ffffff; letter-spacing: -0.02em; }
-            .content { padding: 40px 32px; color: rgba(255,255,255,0.7); line-height: 1.6; font-size: 15px; }
-            .content p { margin-top: 0; margin-bottom: 20px; }
-            .highlight-box { background-color: rgba(255,255,255,0.03); border-left: 3px solid #005BFF; padding: 20px; margin: 24px 0; border-radius: 0 8px 8px 0; }
-            .highlight-box p { margin: 0; font-size: 14px; color: rgba(255,255,255,0.9); }
-            .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); margin-bottom: 4px; display: block; }
-            .btn { display: inline-block; background-color: #ffffff; color: #000000; padding: 12px 24px; text-decoration: none; font-size: 14px; font-weight: 600; border-radius: 4px; margin-top: 10px; }
-            .footer { padding: 32px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; }
-            .footer p { margin: 0; font-size: 13px; color: rgba(255,255,255,0.4); }
-            .footer a { color: #005BFF; text-decoration: none; }
-          </style>
-        </head>
-        <body>
-          <div class="container">
-            <div class="header">
-              <h1>Request Received</h1>
-            </div>
-            <div class="content">
-              <p>Hello ${name},</p>
-              <p>Thank you for reaching out to the Brixs team. This is an automated confirmation that we have successfully received your inquiry for the <strong>${department}</strong> department.</p>
-              
-              <div class="highlight-box">
-                <span class="label">Reference</span>
-                <p><strong>Subject:</strong> ${subject}</p>
-              </div>
-
-              <p>Our team is currently reviewing the details of your request. Due to high volume, please allow 24-48 hours for a dedicated team member to connect with you with a comprehensive response.</p>
-              
-              <p>If you have any urgent additions to this request, simply reply directly to this email.</p>
-            </div>
-            <div class="footer">
-              <p>Best regards,</p>
-              <p style="color: #ffffff; font-weight: 500; margin: 8px 0 16px 0;">The Brixs Team</p>
-              <p><a href="https://www.brixs.space">www.brixs.space</a> &bull; <a href="https://x.com/BrixsChain">Follow us on X</a></p>
-            </div>
-          </div>
-        </body>
-        </html>
-      `,
+      subject: `Request Received — ${subject}`,
+      html: userTemplate(name, department, subject),
     });
 
     if (userEmailResponse.error) {
@@ -149,9 +247,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
     console.error('Contact API Error:', error);
-    return NextResponse.json(
-      { error: 'Internal Server Error' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }
