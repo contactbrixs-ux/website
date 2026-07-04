@@ -2,7 +2,7 @@
 import React, { useState, cloneElement } from 'react'; 
 import Link from 'next/link'; 
 import Image from 'next/image'; 
-import { Menu, ArrowUpRight, ArrowRight, Network, Cpu, Database, Activity, Shield, Server, Coins, Landmark, Zap, Map, FileText, BookOpen, SquareSquare, GitMerge, Wallet, Boxes, Sparkles, Repeat, Rocket, Gift, Terminal, Layers, CreditCard, Bot } from 'lucide-react'; 
+import { Menu, ArrowUpRight, ArrowRight, Network, Cpu, Database, Activity, Shield, Server, Coins, Landmark, Zap, Map, FileText, BookOpen, SquareSquare, GitMerge, Wallet, Boxes, Sparkles, Repeat, Rocket, Gift, Terminal, Layers, CreditCard, Bot, Globe2 } from 'lucide-react'; 
 
 interface MenuItem {
   title: string;
