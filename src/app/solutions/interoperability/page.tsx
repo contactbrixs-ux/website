@@ -128,7 +128,7 @@ export default function InteroperabilityPage() {
           <h2>A single layer across every chain.</h2>
         </div>
         <div className="brx-metrics">
-          {[["8", "Ecosystems connected"], ["5", "Steps to cross-chain execution"], ["7777777", "Testnet chain ID"]].map(([v, l]) => (
+          {[["8", "Ecosystems connected"], ["5", "Steps to cross-chain execution"], ["51515", "Testnet chain ID"]].map(([v, l]) => (
             <div className="brx-metric" key={l}><b>{v}</b><span>{l}</span></div>
           ))}
         </div>

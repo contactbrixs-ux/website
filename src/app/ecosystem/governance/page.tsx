@@ -187,7 +187,7 @@ export default function GovernancePage() {
           <h2>A treasury directed by votes.</h2>
         </div>
         <div className="brx-metrics">
-          {[["$42M", "Treasury directed"], ["15", "Network upgrades shipped"], ["7777777", "Testnet chain ID"]].map(([v, l]) => (
+          {[["$42M", "Treasury directed"], ["15", "Network upgrades shipped"], ["51515", "Testnet chain ID"]].map(([v, l]) => (
             <div className="brx-metric" key={l}><b>{v}</b><span>{l}</span></div>
           ))}
         </div>

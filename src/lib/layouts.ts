@@ -121,7 +121,7 @@ export const layouts: Record<string, Block[]> = {
       "",
       "const client = new BrixsClient({",
       "  rpc: \"https://testnet.brixs.space\",",
-      "  chainId: 7777777,",
+      "  chainId: 51515,",
       "});",
       "",
       "// read the latest settled block",

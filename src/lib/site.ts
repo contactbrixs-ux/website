@@ -87,14 +87,14 @@ const basePages: BasePage[] = [
     eyebrow: "Core execution layer",
     summary: "Native EVM execution powered by a custom high-performance sequencer for sub-second block times.",
     detail:
-      "Brixs Chain is a high-throughput EVM testnet (Chain ID: 7777777). It leverages an optimized execution engine, setting the foundation for future scalable architectures.",
+      "Brixs Chain is a high-throughput EVM testnet (Chain ID: 51515). It leverages an optimized execution engine, setting the foundation for future scalable architectures.",
     bullets: [
       "Proof of Authority (PoA) Sequencer eliminates centralized failure points.",
       "Native Gas Token: $BRIXS for predictable fees.",
       "Custom JSON-RPC Gateway directly integrated for sub-second block times.",
     ],
     stats: [
-      ["7777777", "chain ID"],
+      ["51515", "chain ID"],
       ["Optimized", "execution"],
       ["PoA", "sequencer"],
     ],

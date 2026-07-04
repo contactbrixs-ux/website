@@ -125,7 +125,7 @@ export default function BrxFooter() {
               </div>
               <div className="flex flex-col xl:flex-row xl:justify-between xl:items-center gap-1 xl:gap-0">
                 <span className="text-[#8c93a2]">Chain ID</span>
-                <span className="font-mono text-[#00d395] select-all">7777777</span>
+                <span className="font-mono text-[#00d395] select-all">51515</span>
               </div>
               <div className="flex flex-col xl:flex-row xl:justify-between xl:items-center mt-3 border-t border-[#22252a] pt-3 gap-1 xl:gap-0">
                 <span className="text-[#8c93a2]">Mainnet</span>

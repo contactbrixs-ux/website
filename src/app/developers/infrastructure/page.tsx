@@ -110,7 +110,7 @@ export default function InfrastructurePage() {
               Configured for the live testnet.
             </h2>
             <p style={{ fontSize: 16, lineHeight: 1.6, color: "#59606a", maxWidth: 460 }}>
-              Point your node at the Brixs testnet (chain ID 7777777), pick a role,
+              Point your node at the Brixs testnet (chain ID 51515), pick a role,
               and join the RPC, sequencer, or validator layer. Finality lands in
               roughly two seconds.
             </p>
@@ -123,7 +123,7 @@ export default function InfrastructurePage() {
             <pre>
 {`export const node = {
   network: "brixs-testnet",
-  `}<span className="k">chainId</span>{`: 7777777,
+  `}<span className="k">chainId</span>{`: 51515,
   role: "validator",       `}<span className="c">// rpc | sequencer | validator</span>{`
   rpc: "https://rpc-testnet.brixs.space",
   settlement: "ethereum",
