@@ -53,6 +53,7 @@ const menus: Record<string, MenuItem[]> = {
     { title: "Airdrops", subtitle: "Quests, rewards, and campaigns.", icon: <Gift size={20} strokeWidth={1.5} />, href: "/use-brixs/airdrops" },
   ],
   Resources: [
+    { title: "Blog", subtitle: "Insights, updates, and articles.", icon: <FileText size={20} strokeWidth={1.5} />, href: "/blog", badge: "New" },
     { title: "Roadmap", subtitle: "Future milestones and phases.", icon: <Map size={20} strokeWidth={1.5} />, href: "/resources/roadmap" },
     { title: "Executive Summary", subtitle: "The Brixs vision and mission.", icon: <FileText size={20} strokeWidth={1.5} />, href: "/resources/executive-summary" },
     { title: "Vision", subtitle: "The long-term thesis.", icon: <BookOpen size={20} strokeWidth={1.5} />, href: "/resources/vision" },

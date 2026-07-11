@@ -15,6 +15,7 @@ import {
   Sparkles,
   WalletCards,
 } from "lucide-react";
+import LatestReleasesCarousel from "@/components/LatestReleasesCarousel";
 const nav = [
   { name: "Solutions", href: "/solutions" },
   { name: "CLI", href: "/cli" },
@@ -216,6 +217,7 @@ export default function Home() {
           </Link>{" "}
         </div>{" "}
       </section>{" "}
+      <LatestReleasesCarousel />
       <section id="build" className="brx-build">
         {" "}
         <div className="brx-build-title">
