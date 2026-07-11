@@ -188,7 +188,7 @@ function PostEditor({ postToEdit, onSuccess }: { postToEdit?: any, onSuccess: ()
     if (!title || !content || content === '<p></p>' || !templateImage) { alert("Title, content, and template image are required!"); return; }
     setIsSubmitting(true);
     try {
-      const payload = { title, content, templateImage, author, isPublished, isFeatured, showNewsletter, tags: tags.split(',').map(t => t.trim()).filter(Boolean), seoTitle, seoDescription };
+      const payload = { title, content, templateImage, author, isPublished, isFeatured, showNewsletter, tags: tags.split(',').map((t: string) => t.trim()).filter(Boolean), seoTitle, seoDescription };
       if (postToEdit) {
         await updatePost({ id: postToEdit._id, ...payload });
         alert('Blog post updated successfully!');
