@@ -15,7 +15,18 @@ export async function generateMetadata({
   if (!page) {
     return { title: "Brixs Chain" };
   }
-  return { title: `${page.title} | Brixs Chain`, description: page.summary };
+  const imagePath = `/assets/og/${slug.join("-")}.png`;
+  return { 
+    title: `${page.title} | Brixs Chain`, 
+    description: page.summary,
+    openGraph: {
+      images: [{ url: imagePath, width: 1200, height: 630 }]
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: [imagePath]
+    }
+  };
 }
 export default async function Page({ params }: PageProps) {
   const { slug } = await params;
