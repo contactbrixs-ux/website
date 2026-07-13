@@ -17,8 +17,14 @@ import {
 
 export const metadata: Metadata = {
   title: "Interoperability | Brixs Chain",
-  description:
-    "Brixs connects fragmented blockchain ecosystems into one seamless execution and liquidity environment — cross-chain messaging, bridge abstraction, unified liquidity, and instant routing.",
+  description: "Brixs connects fragmented blockchain ecosystems into one seamless execution and liquidity environment — cross-chain messaging, bridge abstraction, unified liquidity, and instant routing.",
+  openGraph: {
+    images: [{ url: "/assets/og/solutions-interoperability.png", width: 1200, height: 630 }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/assets/og/solutions-interoperability.png"]
+  }
 };
 
 const features: [typeof Network, string, string][] = [

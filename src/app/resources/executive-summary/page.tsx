@@ -15,8 +15,14 @@ import {
 
 export const metadata: Metadata = {
   title: "Executive Summary | Brixs Chain",
-  description:
-    "Brixs is an Ethereum-native infrastructure layer reimagining how value, execution, identity, and liquidity move across digital systems.",
+  description: "Brixs is an Ethereum-native infrastructure layer reimagining how value, execution, identity, and liquidity move across digital systems.",
+  openGraph: {
+    images: [{ url: "/assets/og/resources-executive-summary.png", width: 1200, height: 630 }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/assets/og/resources-executive-summary.png"]
+  }
 };
 
 const keyPoints: [string, string][] = [

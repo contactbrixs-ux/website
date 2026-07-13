@@ -17,8 +17,14 @@ import {
 
 export const metadata: Metadata = {
   title: "Security | Brixs Chain",
-  description:
-    "Security is the foundation of Brixs. Every infrastructure layer is secured before execution — from Future-Proof Securitygraphy to validator coordination and Ethereum settlement.",
+  description: "Security is the foundation of Brixs. Every infrastructure layer is secured before execution — from Future-Proof Securitygraphy to validator coordination and Ethereum settlement.",
+  openGraph: {
+    images: [{ url: "/assets/og/developers-security.png", width: 1200, height: 630 }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/assets/og/developers-security.png"]
+  }
 };
 
 const features: [typeof ShieldCheck, string, string][] = [

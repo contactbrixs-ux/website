@@ -16,6 +16,20 @@ import {
   WalletCards,
 } from "lucide-react";
 import LatestReleasesCarousel from "@/components/LatestReleasesCarousel";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Brixs Chain | Zero-Gas Layer 2 Blockchain for the Next Billion Users",
+  description: "Brixs Chain is an institutional-grade, zero-gas ZK-Rollup Layer 2 blockchain built for mass adoption. Native Account Abstraction, instant finality, and seamless EVM compatibility. Build the future of Web3.",
+  openGraph: {
+    images: [{ url: "/assets/og/home.png", width: 1200, height: 630 }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/assets/og/home.png"]
+  }
+};
+
 const nav = [
   { name: "Solutions", href: "/solutions" },
   { name: "CLI", href: "/cli" },

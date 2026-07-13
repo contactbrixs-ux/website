@@ -15,8 +15,14 @@ import {
 
 export const metadata: Metadata = {
   title: "Brixs CLI | Brixs Chain",
-  description:
-    "The Brixs CLI takes you from local testing to global deployment — start a local node, deploy contracts, bridge assets, and manage validators from one command.",
+  description: "The Brixs CLI takes you from local testing to global deployment — start a local node, deploy contracts, bridge assets, and manage validators from one command.",
+  openGraph: {
+    images: [{ url: "/assets/og/cli.png", width: 1200, height: 630 }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/assets/og/cli.png"]
+  }
 };
 
 const capabilities: [typeof Rocket, string, string][] = [

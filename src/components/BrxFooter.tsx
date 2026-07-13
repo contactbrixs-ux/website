@@ -100,6 +100,14 @@ export default function BrxFooter() {
               <li><Link href="/resources/roadmap" className="hover:text-white transition-colors">Roadmap</Link></li>
             </ul>
           </div>
+          <div className="mt-8">
+            <h3 className="font-bold text-white mb-5 text-[11px] uppercase tracking-wider">Company</h3>
+            <ul className="flex flex-col gap-3.5">
+              <li><Link href="/company/about" className="hover:text-white transition-colors">About Us</Link></li>
+              <li><Link href="/company/contact" className="hover:text-white transition-colors">Contact</Link></li>
+              <li><Link href="/branding-kit" className="hover:text-white transition-colors">Branding Kit</Link></li>
+            </ul>
+          </div>
         </div>
 
         {/* Column 3 */}

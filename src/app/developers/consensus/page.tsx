@@ -16,8 +16,14 @@ import {
 
 export const metadata: Metadata = {
   title: "Consensus | Brixs Chain",
-  description:
-    "BrixsBFT coordinates validators, aggregates signatures, and delivers deterministic ~2s finality across the Brixs network topology.",
+  description: "BrixsBFT coordinates validators, aggregates signatures, and delivers deterministic ~2s finality across the Brixs network topology.",
+  openGraph: {
+    images: [{ url: "/assets/og/developers-consensus.png", width: 1200, height: 630 }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/assets/og/developers-consensus.png"]
+  }
 };
 
 const features: [typeof Server, string, string][] = [

@@ -16,8 +16,14 @@ import {
 
 export const metadata: Metadata = {
   title: "Architecture | Brixs Chain",
-  description:
-    "Brixs is an Ethereum-native Layer 2 that unifies execution, settlement, liquidity, and user experience into one scalable infrastructure stack.",
+  description: "Brixs is an Ethereum-native Layer 2 that unifies execution, settlement, liquidity, and user experience into one scalable infrastructure stack.",
+  openGraph: {
+    images: [{ url: "/assets/og/solutions-architecture.png", width: 1200, height: 630 }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/assets/og/solutions-architecture.png"]
+  }
 };
 
 const layers: [string, string, typeof Layers][] = [

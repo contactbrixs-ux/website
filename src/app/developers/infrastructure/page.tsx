@@ -16,8 +16,14 @@ import {
 
 export const metadata: Metadata = {
   title: "Infrastructure | Brixs Chain",
-  description:
-    "Brixs combines global RPC, sequencer, validator, and data-availability layers with Ethereum-native settlement into one unified protocol architecture.",
+  description: "Brixs combines global RPC, sequencer, validator, and data-availability layers with Ethereum-native settlement into one unified protocol architecture.",
+  openGraph: {
+    images: [{ url: "/assets/og/developers-infrastructure.png", width: 1200, height: 630 }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/assets/og/developers-infrastructure.png"]
+  }
 };
 
 const layers: [typeof Server, string, string][] = [
@@ -29,17 +35,11 @@ const layers: [typeof Server, string, string][] = [
   [Globe, "Network topology", "Multi-region, geographically distributed infrastructure with continuous synchronization and global redundancy."],
 ];
 
-const gallery = [
-  ["/assets/3d-assets/protocol-core.png", "Protocol core"],
-  ["/assets/3d-assets/validator-mesh.png", "Validator mesh"],
-  ["/assets/3d-assets/data-prism.png", "Data availability"],
-];
-
 export default function InfrastructurePage() {
   return (
     <main className="brx-page" style={{ "--accent": "#8c5afc" } as React.CSSProperties}>
-      {/* HERO — mosaic */}
-      <section className="brx-h-mosaic">
+      {/* HERO — split-media */}
+      <section className="brx-h-media">
         <div className="brx-rise">
           <span className="brx-ph-eyebrow">
             <Server size={14} /> Developers · Infrastructure
@@ -70,16 +70,9 @@ export default function InfrastructurePage() {
           </div>
         </div>
 
-        <div className="brx-h-mosaic-grid">
-          <figure>
-            <video src="/assets/official/model-7.mp4" autoPlay muted loop playsInline />
-          </figure>
-          <figure>
-            <Image src="/assets/3d-assets/secure-node.png" alt="Secure node" width={800} height={800} />
-          </figure>
-          <figure>
-            <Image src="/assets/3d-assets/node-icon.png" alt="Network node" width={800} height={800} />
-          </figure>
+        <div className="brx-h-media-frame">
+          <video src="/assets/official/model-7.mp4" autoPlay muted loop playsInline />
+          <span className="brx-tag">BRX / INFRA</span>
         </div>
       </section>
 
@@ -144,18 +137,29 @@ $ brixs node status --live`}
         </div>
       </section>
 
-      {/* GALLERY — strip */}
+      {/* METRICS — chart format */}
       <section className="brx-section">
         <div className="brx-section-head">
-          <p className="brx-eyebrow">Visual surface</p>
-          <h2>The infrastructure, rendered.</h2>
+          <p className="brx-eyebrow">Network telemetry</p>
+          <h2>Real-time Infrastructure Load.</h2>
         </div>
-        <div className="brx-gstrip">
-          {gallery.map(([src, cap]) => (
-            <figure className="brx-shot" key={src}>
-              <Image src={src} alt={cap} width={1200} height={900} />
-              <figcaption>{cap}</figcaption>
-            </figure>
+        <div className="brx-chart-container" style={{ display: 'flex', gap: '2rem', marginTop: '3rem', alignItems: 'flex-end', height: '350px', padding: '2rem', background: 'rgba(255, 255, 255, 0.02)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)' }}>
+          {[
+            { label: 'Mon', value: 40, traffic: '1.2M' },
+            { label: 'Tue', value: 65, traffic: '1.8M' },
+            { label: 'Wed', value: 45, traffic: '1.3M' },
+            { label: 'Thu', value: 85, traffic: '2.5M' },
+            { label: 'Fri', value: 70, traffic: '2.1M' },
+            { label: 'Sat', value: 95, traffic: '2.9M' },
+            { label: 'Sun', value: 60, traffic: '1.7M' }
+          ].map((data, i) => (
+            <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
+              <div style={{ color: '#fff', fontSize: '0.8rem', fontWeight: 600 }}>{data.traffic}</div>
+              <div style={{ width: '100%', background: 'rgba(140, 90, 252, 0.1)', height: '200px', borderRadius: '6px', position: 'relative', overflow: 'hidden' }}>
+                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: `${data.value}%`, background: 'linear-gradient(to top, #8c5afc, #a881fc)', borderRadius: '6px', transition: 'height 1s ease-out' }} />
+              </div>
+              <span style={{ color: '#88909b', fontSize: '0.85rem' }}>{data.label}</span>
+            </div>
           ))}
         </div>
       </section>

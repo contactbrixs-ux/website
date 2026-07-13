@@ -58,6 +58,11 @@ const menus: Record<string, MenuItem[]> = {
     { title: "Executive Summary", subtitle: "The Brixs vision and mission.", icon: <FileText size={20} strokeWidth={1.5} />, href: "/resources/executive-summary" },
     { title: "Vision", subtitle: "The long-term thesis.", icon: <BookOpen size={20} strokeWidth={1.5} />, href: "/resources/vision" },
   ],
+  Company: [
+    { title: "About Us", subtitle: "Our mission, team, and story.", icon: <Globe2 size={20} strokeWidth={1.5} />, href: "/company/about" },
+    { title: "Contact", subtitle: "Get in touch with us.", icon: <FileText size={20} strokeWidth={1.5} />, href: "/company/contact" },
+    { title: "Branding Kit", subtitle: "Logos, assets, and guidelines.", icon: <Sparkles size={20} strokeWidth={1.5} />, href: "/branding-kit" },
+  ],
   Docs: [
     { title: "Platform Overview", subtitle: "Architecture, consensus, data model.", icon: <BookOpen size={20} strokeWidth={1.5} />, href: "https://docs.brixs.space/platform/overview", external: true },
     { title: "Smart Contracts", subtitle: "Build and deploy on Brixs.", icon: <FileText size={20} strokeWidth={1.5} />, href: "https://docs.brixs.space/smart-contracts/overview", external: true },

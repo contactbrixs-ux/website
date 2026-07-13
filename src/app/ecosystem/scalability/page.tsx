@@ -19,8 +19,14 @@ import {
 
 export const metadata: Metadata = {
   title: "Scalability | Brixs Chain",
-  description:
-    "Brixs scales horizontally through parallel execution — high throughput, fast finality, and low latency without bottlenecks or centralized constraints.",
+  description: "Brixs scales horizontally through parallel execution — high throughput, fast finality, and low latency without bottlenecks or centralized constraints.",
+  openGraph: {
+    images: [{ url: "/assets/og/ecosystem-scalability.png", width: 1200, height: 630 }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/assets/og/ecosystem-scalability.png"]
+  }
 };
 
 const features: [typeof Zap, string, string][] = [
