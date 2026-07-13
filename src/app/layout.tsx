@@ -6,7 +6,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Brixs Chain | Zero-Gas Layer 2 Blockchain for the Next Billion Users",
   description: "Brixs Chain is an institutional-grade, zero-gas ZK-Rollup Layer 2 blockchain built for mass adoption. Native Account Abstraction, instant finality, and seamless EVM compatibility. Build the future of Web3.",
-  keywords: "Brixs Chain, zero gas blockchain, layer 2 blockchain, ZK rollup, account abstraction, EVM compatible, DPoS blockchain, web3, crypto, DeFi, NFT, smart contracts, Ethereum L2, gasless transactions, blockchain infrastructure, #BrixsChain #Web3 #Layer2 #ZeroGas #Blockchain #Crypto #DeFi #NFT #EVM #AccountAbstraction #ZKRollup #Ethereum",
+  keywords: "Brixs Chain, zero gas blockchain, layer 2 blockchain, ZK rollup, account abstraction, EVM compatible, DPoS blockchain, web3, crypto, DeFi, NFT, smart contracts, Ethereum L2, gasless transactions, blockchain infrastructure",
   authors: [{ name: "Brixs Chain", url: "https://www.brixs.space" }],
   creator: "Brixs Chain",
   publisher: "Brixs Chain",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: "🚀 The world's first zero-gas Layer 2 blockchain. Native Account Abstraction. Instant finality. EVM compatible. Build dApps for the next billion users. No gas. No friction. Just build.",
     url: "https://www.brixs.space",
     siteName: "Brixs Chain",
-    images: [{ url: "https://www.brixs.space/full_logo_black_on_white.png", width: 1200, height: 630, alt: "Brixs Chain — Zero-Gas Layer 2 Blockchain" }],
+    images: [{ url: "/assets/og/home.png", width: 1200, height: 630, alt: "Brixs Chain — Zero-Gas Layer 2 Blockchain" }],
     locale: "en_US",
     type: "website",
   },
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
     site: "@BrixsChain",
     creator: "@BrixsChain",
     title: "Brixs Chain | Zero-Gas L2 Blockchain",
-    description: "🔥 Zero-gas Layer 2 blockchain is LIVE! Native AA, instant finality, EVM compatible. Build the future of Web3. #BrixsChain #Web3 #Layer2 #ZeroGas #Blockchain #Crypto #DeFi #EVM",
-    images: [{ url: "https://www.brixs.space/full_logo_black_on_white.png", alt: "Brixs Chain" }],
+    description: "🔥 Zero-gas Layer 2 blockchain is LIVE! Native AA, instant finality, EVM compatible. Build the future of Web3.",
+    images: [{ url: "/assets/og/home.png", alt: "Brixs Chain" }],
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } },
 };

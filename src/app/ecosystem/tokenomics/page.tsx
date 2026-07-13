@@ -20,8 +20,14 @@ import {
 
 export const metadata: Metadata = {
   title: "Tokenomics | Brixs Chain",
-  description:
-    "BRX is the economic layer of Brixs Chain — powering validators, governance, ecosystem incentives, and long-term protocol sustainability across the network.",
+  description: "BRX is the economic layer of Brixs Chain — powering validators, governance, ecosystem incentives, and long-term protocol sustainability across the network.",
+  openGraph: {
+    images: [{ url: "/assets/og/ecosystem-tokenomics.png", width: 1200, height: 630 }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/assets/og/ecosystem-tokenomics.png"]
+  }
 };
 
 const utility: [typeof Zap, string, string][] = [

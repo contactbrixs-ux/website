@@ -16,8 +16,14 @@ import {
 
 export const metadata: Metadata = {
   title: "Developer Ecosystem | Brixs Chain",
-  description:
-    "Enterprise-grade SDKs, zero-config local networks, and deep IDE integration. Build on Brixs Chain without friction.",
+  description: "Enterprise-grade SDKs, zero-config local networks, and deep IDE integration. Build on Brixs Chain without friction.",
+  openGraph: {
+    images: [{ url: "/assets/og/products-developer-ecosystem.png", width: 1200, height: 630 }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/assets/og/products-developer-ecosystem.png"]
+  }
 };
 
 const sdks: [typeof Code2, string, string][] = [

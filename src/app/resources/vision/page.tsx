@@ -6,8 +6,14 @@ import { ArrowRight, ArrowUpRight, Diamond } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Vision | Brixs Chain",
-  description:
-    "The Brixs thesis: the future internet is built around movement, not websites. Invisible infrastructure that moves value, identity, liquidity, and execution without friction.",
+  description: "The Brixs thesis: the future internet is built around movement, not websites. Invisible infrastructure that moves value, identity, liquidity, and execution without friction.",
+  openGraph: {
+    images: [{ url: "/assets/og/resources-vision.png", width: 1200, height: 630 }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/assets/og/resources-vision.png"]
+  }
 };
 
 const phases = [

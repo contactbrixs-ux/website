@@ -17,8 +17,14 @@ import {
 
 export const metadata: Metadata = {
   title: "Roadmap | Brixs Chain",
-  description:
-    "The Brixs roadmap: a multi-stage plan spanning protocol foundation, testnet development, developer ecosystem, infrastructure scaling, mainnet launch, and global adoption.",
+  description: "The Brixs roadmap: a multi-stage plan spanning protocol foundation, testnet development, developer ecosystem, infrastructure scaling, mainnet launch, and global adoption.",
+  openGraph: {
+    images: [{ url: "/assets/og/resources-roadmap.png", width: 1200, height: 630 }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/assets/og/resources-roadmap.png"]
+  }
 };
 
 // Every roadmap phase — timeframe, milestone, description. Preserved from the source.

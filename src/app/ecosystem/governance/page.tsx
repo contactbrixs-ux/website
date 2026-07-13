@@ -20,8 +20,14 @@ import {
 
 export const metadata: Metadata = {
   title: "Governance | Brixs Chain",
-  description:
-    "Brixs governance turns proposals, validator review, and community votes into a transparent, on-chain process for evolving the network.",
+  description: "Brixs governance turns proposals, validator review, and community votes into a transparent, on-chain process for evolving the network.",
+  openGraph: {
+    images: [{ url: "/assets/og/ecosystem-governance.png", width: 1200, height: 630 }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/assets/og/ecosystem-governance.png"]
+  }
 };
 
 const pipeline = [

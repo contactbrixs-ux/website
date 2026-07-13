@@ -15,8 +15,14 @@ import {
 
 export const metadata: Metadata = {
   title: "Native EVM | Brixs Chain",
-  description:
-    "Native EVM is an object-centric, multi-threaded execution environment engineered to eliminate the state bottlenecks limiting modern infrastructure.",
+  description: "Native EVM is an object-centric, multi-threaded execution environment engineered to eliminate the state bottlenecks limiting modern infrastructure.",
+  openGraph: {
+    images: [{ url: "/assets/og/products-native-evm.png", width: 1200, height: 630 }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/assets/og/products-native-evm.png"]
+  }
 };
 
 const features: [typeof Zap, string, string][] = [

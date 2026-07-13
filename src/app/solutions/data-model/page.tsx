@@ -17,8 +17,14 @@ import {
 
 export const metadata: Metadata = {
   title: "Data Model | Brixs Chain",
-  description:
-    "Brixs redesigns blockchain state around isolated objects — object-centric ownership, parallel state transitions, and storage built for scalable execution.",
+  description: "Brixs redesigns blockchain state around isolated objects — object-centric ownership, parallel state transitions, and storage built for scalable execution.",
+  openGraph: {
+    images: [{ url: "/assets/og/solutions-data-model.png", width: 1200, height: 630 }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/assets/og/solutions-data-model.png"]
+  }
 };
 
 const features: [typeof Database, string, string][] = [
