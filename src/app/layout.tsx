@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: "🚀 The world's first zero-gas Layer 2 blockchain. Native Account Abstraction. Instant finality. EVM compatible. Build dApps for the next billion users. No gas. No friction. Just build.",
     url: "https://www.brixs.space",
     siteName: "Brixs Chain",
-    images: [{ url: "/assets/og/home.png", width: 1200, height: 630, alt: "Brixs Chain — Zero-Gas Layer 2 Blockchain" }],
+    images: [{ url: "/assets/og/home.jpg", width: 1200, height: 630, alt: "Brixs Chain — Zero-Gas Layer 2 Blockchain" }],
     locale: "en_US",
     type: "website",
   },
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     creator: "@BrixsChain",
     title: "Brixs Chain | Zero-Gas L2 Blockchain",
     description: "🔥 Zero-gas Layer 2 blockchain is LIVE! Native AA, instant finality, EVM compatible. Build the future of Web3.",
-    images: [{ url: "/assets/og/home.png", alt: "Brixs Chain" }],
+    images: [{ url: "/assets/og/home.jpg", alt: "Brixs Chain" }],
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } },
 };
